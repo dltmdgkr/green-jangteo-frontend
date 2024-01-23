@@ -54,8 +54,15 @@
 - Jenkins
 - Docker
 
-# 구현기능(이승학)
-- 회원가입 + 로그인
-  ![회원](https://github.com/dltmdgkr/green-jangteo-frontend/assets/126390568/8882dee0-4910-46ae-8442-680e112527c4)
+# 구현화면
+### 회원가입 + 로그인
+<img src="https://github.com/dltmdgkr/green-jangteo-frontend/assets/126390568/8882dee0-4910-46ae-8442-680e112527c4" width="300">
+
+### 게시판(커뮤니티) 기능
+<img src="https://github.com/dltmdgkr/green-jangteo-frontend/assets/126390568/1e6b1788-22eb-45a4-8075-bc09b6effa14" width="300">
+
+### 채팅 기능
+<img src="https://github.com/dltmdgkr/green-jangteo-frontend/assets/126390568/81055918-cb56-4092-804b-a1b1d30bba3c" width="300">
+
 
   
