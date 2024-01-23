@@ -53,3 +53,9 @@
 - H2
 - Jenkins
 - Docker
+
+# 구현기능(이승학)
+- 회원가입 + 로그인
+  ![회원](https://github.com/dltmdgkr/green-jangteo-frontend/assets/126390568/8882dee0-4910-46ae-8442-680e112527c4)
+
+  
