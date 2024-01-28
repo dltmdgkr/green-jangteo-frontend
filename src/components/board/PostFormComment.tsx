@@ -84,7 +84,9 @@ export default function PostFormComment() {
 
   const handleCommentDelete = async (commentId: string) => {
     try {
-      await customAxios.delete(`/comments/${commentId}?userId=${userId}`);
+      await customAxios.delete(`/comments/${commentId}`, {
+        data: { userId: userId },
+      });
       refreshComments();
     } catch (error) {
       console.error('댓글 삭제 중 에러가 발생했습니다.', error);
