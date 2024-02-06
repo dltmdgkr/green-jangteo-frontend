@@ -125,4 +125,5 @@ const Content = styled.div`
   padding-top: 20px;
   margin-top: 20px;
   font-size: 16px;
+  white-space: pre;
 `;
