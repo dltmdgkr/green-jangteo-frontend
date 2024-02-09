@@ -59,7 +59,7 @@
 <img src="https://github.com/dltmdgkr/green-jangteo-frontend/assets/126390568/8882dee0-4910-46ae-8442-680e112527c4" width="300">
 
 ### 상품리뷰 기능
-<img src="https://www.notion.so/510d27b8fb994f0e8763fd4814be3737?pvs=4#4fd863b967944270add069a4103a0de3" width="300">
+<img src="https://github.com/dltmdgkr/green-jangteo-frontend/assets/126390568/9acb288f-e72d-4fe7-b07d-0b0575cb791e" width="300">
 
 ### 게시판(커뮤니티) 기능
 <img src="https://github.com/dltmdgkr/green-jangteo-frontend/assets/126390568/1e6b1788-22eb-45a4-8075-bc09b6effa14" width="300">
