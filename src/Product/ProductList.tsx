@@ -4,16 +4,6 @@ import { useEffect, useState } from 'react';
 import Slick from './slick';
 import ProductListItem from './ProductListItem';
 import customAxios from '../apiFetcher/customAxios';
-
-const Wrapper = styled.div`
-  padding: 0 20px;
-`;
-
-const Title = styled.h2`
-  font-size: 24px;
-  font-weight: bold;
-  margin: 50px 0 20px;
-`;
 interface List {
   productName: string;
   price: number;
@@ -46,6 +36,29 @@ const ProductList = () => {
       .catch(err => console.log(err.message));
   }, []);
 
+  const ProductsFilterByCategory = (category: string) => {
+    const filteredProducts = products.filter(
+      (item: any) => item.categories.firstCategory == category,
+    );
+
+    const filteredProductsComponents = filteredProducts.map(item => (
+      <ProductListItem
+        image={item.images}
+        title={item.productName}
+        price={item.price}
+        productId={item.productId}
+        key={item.productId}
+        width={`100%`}
+      />
+    ));
+
+    return filteredProductsComponents.length !== 0 ? (
+      <Slick>{filteredProductsComponents}</Slick>
+    ) : (
+      <Text>등록된 상품이 없습니다 🥲</Text>
+    );
+  };
+
   return (
     <Wrapper>
       {/* <Title>
@@ -71,60 +84,25 @@ const ProductList = () => {
         ))}
       </Slick> */}
       <Title>음식</Title>
-      <Slick>
-        {products
-          .reverse()
-          .map((item: any) =>
-            item.categories.firstCategory == `음식` ? (
-              <ProductListItem
-                image={item.image}
-                title={item.productName}
-                price={item.price}
-                productId={item.productId}
-                key={item.productId}
-                width={`100%`}
-              />
-            ) : (
-              void 0
-            ),
-          )}
-      </Slick>
-      <Title>시리얼</Title>
-      <Slick>
-        {products.map((item: any) =>
-          item.categories.secondCategory == `시리얼` ? (
-            <ProductListItem
-              image={item.image}
-              title={item.productName}
-              price={item.price}
-              productId={item.productId}
-              key={item.productId}
-              width={`100%`}
-            />
-          ) : (
-            void 0
-          ),
-        )}
-      </Slick>
-      <Title>하의</Title>
-      <Slick>
-        {products.map(
-          (item: any) => (
-            // item.categories.secondCategory == `하의` && (
-            <ProductListItem
-              image={item.image}
-              title={item.productName}
-              price={item.price}
-              productId={item.productId}
-              key={item.productId}
-              width={`100%`}
-            />
-          ),
-          // ),
-        )}
-      </Slick>
+      {ProductsFilterByCategory('음식')}
+      <Title>의류</Title>
+      {ProductsFilterByCategory('의류')}
     </Wrapper>
   );
 };
 
 export default ProductList;
+
+const Wrapper = styled.div`
+  padding: 0 20px;
+`;
+
+const Title = styled.h2`
+  font-size: 24px;
+  font-weight: bold;
+  margin: 50px 0 20px;
+`;
+
+const Text = styled.div`
+  padding: 30px;
+`;
