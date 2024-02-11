@@ -4,24 +4,24 @@ import { useEffect, useState } from 'react';
 import customAxios from '../apiFetcher/customAxios';
 import { Link } from 'react-router-dom';
 import { IoSearch } from 'react-icons/io5';
+import useDebounce from '../hooks/useDebounce';
 
 const Search = () => {
   const [products, setProducts] = useState([]);
   const [currentValue, setCurrentValue] = useState([]);
-  console.log(currentValue);
+  const debouncedValue = useDebounce(currentValue, 300);
+
   useEffect(() => {
     customAxios
-      .get('/products/auto-complete', { params: { keyword: currentValue } })
+      .get('/products/auto-complete', { params: { keyword: debouncedValue } })
       .then(response => {
         setProducts(response.data);
       })
       .catch(err => console.log(err.message));
-  }, [currentValue]);
-  console.log(products);
+  }, [debouncedValue]);
 
   const autoComplete = (e: any) => {
-    const currentValue = e.target.value;
-    setCurrentValue(currentValue);
+    setCurrentValue(e.target.value);
   };
 
   return (
