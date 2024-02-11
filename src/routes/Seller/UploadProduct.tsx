@@ -9,7 +9,7 @@ import customAxios from '../../apiFetcher/customAxios';
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { categoryList } from '../../Product/categoryList';
 import { UploadPageModal } from '../../components/modal/UploadPageModal';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 interface FormValue {
   userId: number;
@@ -70,8 +70,14 @@ const UploadProduct = () => {
         navigate(-1);
       })
       .catch(error => {
-        console.log(error.response);
-        console.log(data);
+        console.log(`🛑 UploadProduct error`, error.response);
+        console.log(`🛑 UploadProduct error`, data);
+
+        if (error instanceof AxiosError) {
+          alert(
+            `${error.response?.data.message}\n예산 문제로 서버가 중단되었습니다ㅜㅜ`,
+          );
+        }
       });
   };
 
