@@ -18,6 +18,7 @@ const Search = () => {
         setProducts(response.data);
       })
       .catch(err => console.log(err.message));
+    alert('예산 문제로 서버가 중단되었습니다ㅜㅜ');
   }, [debouncedValue]);
 
   const autoComplete = (e: any) => {
